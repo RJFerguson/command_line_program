@@ -38,4 +38,5 @@ def view_other_headlines
   news_site = get_website_from_user
   order = get_sort_by
   get_website(news_site, order)
+  exit_method 
 end

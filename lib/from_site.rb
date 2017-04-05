@@ -5,8 +5,14 @@ require 'pry'
 
 def get_website(news_site, order)
   check = Hash.new(0)
-  if (news_site == "the-new-york-times" || news_site == "bbc-news" || news_site == "cnn")
+  if news_site == "the-new-york-times" 
     order = "top"
+  elsif news_site == "cnn" 
+    order = "top" 
+  elsif news_site == "bbc-news" 
+    order = "top"
+  else 
+    order 
   end
   web_info = RestClient.get("https://newsapi.org/v1/articles?source=#{news_site}&sortBy=#{order}&apiKey=f5a2515a3a5c4347ab1044ecc2c0cc50")
   final = JSON.parse(web_info)
@@ -16,6 +22,6 @@ def get_website(news_site, order)
   end
 
   html_stuff = RestClient.get(check[2])
-  puts html_stuff
+ # puts html_stuff
 
 end
